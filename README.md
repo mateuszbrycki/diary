@@ -12,11 +12,13 @@ Any content written by AI will be appropriately marked.
 
 [mateuszbrycki.com](https://mateuszbrycki.com)
 
-## Table of Content
+## Table of Contents
 
 1. Books
     - [To Read](./books/to-read.md)
+    - [Staff Engineer: Leadership beyond the management track](./books/20240422-staff-engineer.md)
 
 2. Knowledge
     - Testing
         - [Testing Practices](./knowledge/testing/testing-practices.md)
+        
