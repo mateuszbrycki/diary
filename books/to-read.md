@@ -25,3 +25,20 @@ A list of books to read with an explanation of why I found them interesting.
     **Why:** the book provides descriptions of the most common algorithms. Knowledge about algorithms helps in abstracting specific problems and finding generic solutions. The book's table of contents is composed in a way that helps to find an algorithm that solves your problem.
 
     **Tags:** software archetypes, algorithms
+
+4.  [Growing Object-Oriented Software Guided by Tests](https://www.amazon.com/Growing-Object-Oriented-Software-Guided-Tests/dp/0321503627/ref=asc_df_0321503627)
+
+    **Author:** S. Freeman, N. Pryce
+    
+    **Why:** the book explains the caveats of TDD.  
+    *Please keep in mind that every time the authors mention mocks, the fakes should be considered as well.* ([source](https://bettersoftwaredesign.pl/podcast/o-implementacji-testow-backendu-i-architekturze-otwartej-na-testowanie-z-piotrem-stawirejem/))
+
+    **Tags:** testing, software architecture
+
+5.  [Style Guide for Object Design](https://www.goodreads.com/book/show/49649345-style-guide-for-object-design)
+
+    **Author:** M. Noback
+    
+    **Why:** author introduces the idea of *fakes* instead of mocks. ([source](https://bettersoftwaredesign.pl/podcast/o-implementacji-testow-backendu-i-architekturze-otwartej-na-testowanie-z-piotrem-stawirejem/))
+
+    **Tags:** testing, software architecture
