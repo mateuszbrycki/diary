@@ -12,7 +12,7 @@ Any third-party dependency should be covered with an abstraction. This will open
 When the code is open for testing and all the dependencies are covered with abstractions, you can write reusable tests.
 A reusable test is a test that has one implementation but its testing scope is defined by the dependencies. If the test is meant to be a unit test, the fakes will be injected. If the test is meant to be an integration test, the real implementations will be injected. The higher testing levels might require writing some "glue" code that will trigger HTTP calls or click a button on the UI.
 
-## Bulletproof Tests
+### Bulletproof Tests
 An application has well-defined layers (domain, application, view, infrastructure) to be open for testing.
 
 The rich domain and application layers should be tested with unit tests. These layers should work on abstractions to be independent from the rest of the world. Integration tests should be implemented with the use of domain language. Such tests will be reusable on the higher levels (e.g. presentation layer).
