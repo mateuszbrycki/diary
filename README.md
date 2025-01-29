@@ -17,6 +17,7 @@ Any content written by AI will be appropriately marked.
 1. Books
     - [To Read](./books/to-read.md)
     - [Staff Engineer: Leadership beyond the management track](./books/20240422-staff-engineer.md)
+    - [Building Evolutionary Architectures: Support Constant Change](./books/20241225-building-evolutionary-architectures-support-constant-change.md)
 
 2. Knowledge
     - Testing
