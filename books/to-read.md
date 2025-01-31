@@ -39,6 +39,22 @@ A list of books to read with an explanation of why I found them interesting.
 
     **Author:** M. Noback
     
-    **Why:** author introduces the idea of *fakes* instead of mocks. ([source](https://bettersoftwaredesign.pl/podcast/o-implementacji-testow-backendu-i-architekturze-otwartej-na-testowanie-z-piotrem-stawirejem/))
+    **Why:** author introduces the idea of *fakes* instead of mocks ([source](https://bettersoftwaredesign.pl/podcast/o-implementacji-testow-backendu-i-architekturze-otwartej-na-testowanie-z-piotrem-stawirejem/)).
 
     **Tags:** testing, software architecture
+
+6. [Team Topologies](https://www.goodreads.com/book/show/44135420-team-topologies)
+
+    **Author:** M. Skelton, M Pais
+    
+    **Why:** an architecture is not about the style. It's also about how it will be implemented. Understanding Team Topologies will allow for better architecture-team alignment ([source](../knowledge/architecture/architecture-discovery.md)). 
+
+    **Tags:** software architecture
+
+7. [Communication Patterns](https://www.goodreads.com/book/show/171661690-communication-patterns)
+
+    **Author:** J. Read
+    
+    **Why:** an architecture should be visualized. However, there are some rules on how to design a readable and easy to remember diagrams ([source](../knowledge/architecture/architecture-discovery.md)).
+
+    **Tags:** software architecture

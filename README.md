@@ -15,7 +15,7 @@ Any content written by AI will be appropriately marked.
 ## Table of Contents
 
 1. Books
-    - [To Read](./books/to-read.md)
+    - [To Read List](./books/to-read.md)
     - [Staff Engineer: Leadership beyond the management track](./books/20240422-staff-engineer.md)
     - [Building Evolutionary Architectures: Support Constant Change](./books/20241225-building-evolutionary-architectures-support-constant-change.md)
     - [Functional Programming in Kotlin](./books/20250110-functional-programming-in-kotlin.md)
@@ -25,4 +25,5 @@ Any content written by AI will be appropriately marked.
         - [Testing Practices](./knowledge/testing/testing-practices.md)
     - Architecture
         - [Fitness Functions](./knowledge/architecture/fitness-functions.md)
+        - [Architecture Discovery](./knowledge/architecture/architecture-discovery.md)
         
