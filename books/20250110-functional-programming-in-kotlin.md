@@ -98,3 +98,21 @@ fun <A> of(vararg aa: A): List<A> {
 The `*tail` expression (spread operator) means that an array has been passed as a variadic parameter. The spread operator passes each element of the array as individual arguments.
 
 More on passing array arguments in the [Kotlin documentation](https://kotlinlang.org/docs/arrays.html#pass-variable-number-of-arguments-to-a-function).
+
+### Chapter 4
+
+#### Lifting functions
+To lift a function means to transfor a function to operate within the context of a single `Option` value:
+
+```
+fun <A, B> lift(f: (A) -> B): (Option<A>) -> Option<B> =
+    { oa -> oa.map(f) }
+```
+
+#### For-comprehension
+
+[Why Do Functional Programmers Prefer For-Comprehension Over Imperative Code Block](https://edward-huang.com/scala/functional-programming/2021/11/30/why-do-functional-programmers-prefer-for-comprehension-over-imperative-code-block/)
+
+[List comprehensions in functional programming](https://mathspp.com/blog/twitter-threads/list-comprehensions-in-functional-programming)
+
+[Bottom of the Rabbit Hole: for-comprehensions and monads](https://murraytodd.medium.com/bottom-of-the-rabbit-hole-for-comprehensions-and-monads-7f592a53c73c)
