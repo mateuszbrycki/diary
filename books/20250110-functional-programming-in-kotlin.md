@@ -116,3 +116,57 @@ fun <A, B> lift(f: (A) -> B): (Option<A>) -> Option<B> =
 [List comprehensions in functional programming](https://mathspp.com/blog/twitter-threads/list-comprehensions-in-functional-programming)
 
 [Bottom of the Rabbit Hole: for-comprehensions and monads](https://murraytodd.medium.com/bottom-of-the-rabbit-hole-for-comprehensions-and-monads-7f592a53c73c)
+
+#### Suspended Function
+
+A blocking operation that might be suspended on the execution of a long running child process is named `suspending function`.
+It's a regular Kotlin function with a `suspend` keyword.
+
+More on `suspend` in the [Kotlin documentation](https://kotlinlang.org/docs/flow.html#suspending-functions).
+
+
+### Chapter 5
+
+#### Lazy evaluation 
+*Non-strict* or *lazy* evaluation means that the value of an expression is only evaluated at the point it's referenced. 
+The code is no longer greedy in performing all the calculations but instead compute on demand. 
+
+*Non-strictness* is a property of a function. The function that is non-strict chooses if it wants to evaluate one or more of its arguments.
+Strict functions are the norm in most programming languages. 
+The unevaluated form of an expression (e.g. `() -> A`) is called a *thunk*. You can force a thunk to evaluate the expression. 
+
+If you wish to calculate a thunk reult only once, you can cache the value explicitly by delegating to the `lazy` build-in function when assigning a new value:
+
+```
+fun maybeTwice2(b: Boolean, i: () -> Int) {
+    val j: Int by lazy(i)
+    if (b) j + j else 0
+}
+```
+
+This approach defers initialization unitl `j` is referenced by the `if` statement. 
+
+#### Smart constructors
+
+Smart constructors provide a slightly different signature than the "real" constructor. By convention, they live in the companion objects of the base class. Their names typically lowercase the first letter of the corresponding data constructor.
+
+```
+fun <A> cons(hd: () -> A, tl: () -> Stream<A>): Stream<A> {
+    val head: A by lazy(hd)
+    val tail: Stream<A> by lazy(tl)
+    return Cons({head}, {tail})
+}
+```
+
+This is a common trick that ensures that thunk will do its work only once when forced for the first time. 
+
+#### Description vs evaluation
+
+Laziness lets separate the description of an expression from the evaluation of that expression. You can describe a large expression and the evaluate only a portion of it. 
+
+#### Corecursive Function
+
+Corecursive function, in the opposite to the recursive function that consumes data, produces data. Recursive functions terminate by recursing on smaller inputs, corecursive functions need not to terminate as long as they remain productive (they produce data).
+An example of a corecursive function is `unfold`.
+Corecursion is also sometimes called *guarded recursion*, and productivity is sometimes called *cotermination*.
+
