@@ -84,7 +84,7 @@ Everything is clear. Can you imagine how much faster the introduction would be? 
 Summing everything up, I see ES in many parts of our business – development, planning, and even in management. After small play with it, I have more questions than answers. I definitely should take part in some workshops organized by ES experts.
 
 ## Materials
-1. [Introducing Event Storming](hhttp://ziobrando.blogspot.com/2013/11/introducing-event-storming.html)
+1. [Introducing Event Storming](http://ziobrando.blogspot.com/2013/11/introducing-event-storming.html)
 1. [EventStorming Recipes](https://skillsmatter.com/skillscasts/5193-alberto-brandolini#showModal?modal-signup-complete)
 1. [Discovering unknown domain with Event Storming – Mariusz Gil](https://www.youtube.com/watch?v=dhoXYRqghws)
 1. [Event Storming demo & discussion](https://www.youtube.com/watch?v=xIB_VQVVWKk)
