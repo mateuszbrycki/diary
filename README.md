@@ -26,4 +26,10 @@ Any content written by AI will be appropriately marked.
     - Architecture
         - [Fitness Functions](./knowledge/architecture/fitness-functions.md)
         - [Architecture Discovery](./knowledge/architecture/architecture-discovery.md)
-        
+
+3. Blog
+    - [16/09/2019 | CQ-Shop – Summary](./blog/20190916-cq-shop-summary.md)
+    - [05/09/2019 | CQ-Shop – Architecture, Environment, and Tools](./blog/20190905-cq-shop-architecture-environment-and-tools.md)
+    - [27/08/2019 | CQ-Shop – Events and Anomaly Detection](./blog/20190827-cq-shop–events-anomaly-detection.md)
+    - [14/02/2019 | CQ-Shop – Event Storming](./blog/20190214-cq-shop-event-storming.md)
+    - [10/10/2018 | CQ-Shop – introducing the project](./blog/20181010-cq-shop-introducing-the-project.md)
