@@ -1,6 +1,9 @@
 > [!IMPORTANT]
 > This article was originally posted on [passion-to-profession.com](https://web.archive.org/web/20220702180901/https://passion-to-profession.com/2019/02/14/cq-shop-event-storming/)
 
+> [!NOTE]
+> The code of the CQ-Shop project is available in the [cq-shop repository](https://github.com/mateuszbrycki/cq-shop).
+
 # CQ-Shop – Event Storming
 *Publication date:* 14/02/2019
 

@@ -1,6 +1,9 @@
 > [!IMPORTANT]
 > This article was originally posted on [passion-to-profession.com](https://web.archive.org/web/20220809161453/https://passion-to-profession.com/2019/08/27/cq-shop-events-and-anomaly-detection/)
 
+> [!NOTE]
+> The code of the CQ-Shop project is available in the [cq-shop repository](https://github.com/mateuszbrycki/cq-shop).
+
 # CQ-Shop – Events and Anomaly Detection
 *Publication date:* 27/08/2019
 

@@ -1,6 +1,9 @@
 > [!IMPORTANT]
 > This article was originally posted on [passion-to-profession.com](https://web.archive.org/web/20220809173539/https://passion-to-profession.com/2019/09/05/cq-shop-architecture-environment-and-tools/)
 
+> [!NOTE]
+> The code of the CQ-Shop project is available in the [cq-shop repository](https://github.com/mateuszbrycki/cq-shop).
+
 # CQ-Shop – Architecture, Environment, and Tools
 *Publication date:* 05/09/2019
 

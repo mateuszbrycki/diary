@@ -1,6 +1,9 @@
 > [!IMPORTANT]
 > This article was originally posted on [passion-to-profession.com](https://web.archive.org/web/20220809174902/https://passion-to-profession.com/2018/10/10/cq-shop-introducing-the-project/)
 
+> [!NOTE]
+> The code of the CQ-Shop project is available in the [cq-shop repository](https://github.com/mateuszbrycki/cq-shop).
+
 # CQ-Shop – introducing the project
 *Publication date:* 10/10/2018
 
