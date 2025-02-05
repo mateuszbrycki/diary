@@ -21,6 +21,8 @@ The final system consists of 9 small applications. Four of them are strictly rel
 
 All of them are Spring Boot services developed in Java. Every application has a dedicated H2 in-memory database instance. As you can see in the diagram below, the schema consists of four smaller schemas.
 
+![CQ-Shop Architecture](./img/cq-shop-architecture.png)
+
 ## Kafka
 I always wanted to learn some basics of Kafka. It was an ideal time to do so. I decided to use Kafka as the message broker that handles all the generated events. It is responsible for managing the whole communication that the CQ-Shop application generates. I used all the events transported by the message broker as data for anomaly detection.
 
