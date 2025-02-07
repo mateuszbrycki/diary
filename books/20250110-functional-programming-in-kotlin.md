@@ -170,3 +170,25 @@ Corecursive function, in the opposite to the recursive function that consumes da
 An example of a corecursive function is `unfold`.
 Corecursion is also sometimes called *guarded recursion*, and productivity is sometimes called *cotermination*.
 
+
+### Chapter 6
+
+#### Purely functional state management
+
+You don't update the state as a side effect but simply return the new state along with the value.
+
+```
+interface RNG {
+    fun nextInt(): Pair<Int, RNG>
+}
+```
+
+This can be written as `(RNG) -> Pair<A, RNG>` for some type `A`. A function of this type is called `state action` or `state transition` because it transforms the `RNG` state. Such actions can be combined using `combinators`, which are higher-order functions. 
+
+It's pretty tedious and repetetive to pass the state along by ourselves, we want combinators to automatically pass if from one action to the next. 
+
+**The idea is simple - use a pure function that accepts a state as its argument and returns the new state alongsite its result. Us the new state to process another value.** Thanks to that, state transitions are explicit. 
+
+#### Dealing with awkwardness in functional programming
+Awkwardness is almost always a sign of some missing abstraction waiting to be discovered.
+Once encountered, plow ahead and look for common patterns you can factor out. Most likely, some had already had such a problem.
