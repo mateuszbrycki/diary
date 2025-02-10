@@ -26,6 +26,9 @@ Any content written by AI will be appropriately marked.
     - Architecture
         - [Fitness Functions](./knowledge/architecture/fitness-functions.md)
         - [Architecture Discovery](./knowledge/architecture/architecture-discovery.md)
+        - [NoSQL Design Discovery](./knowledge/architecture/nosql-design-discovery.md)
+    - Databases
+        - [DynamoDB](./knowledge/databases/dynamodb.md)
 
 3. Blog
     - [16/09/2019 | CQ-Shop – Summary](./blog/20190916-cq-shop-summary.md)
