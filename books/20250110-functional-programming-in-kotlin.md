@@ -192,3 +192,27 @@ It's pretty tedious and repetetive to pass the state along by ourselves, we want
 #### Dealing with awkwardness in functional programming
 Awkwardness is almost always a sign of some missing abstraction waiting to be discovered.
 Once encountered, plow ahead and look for common patterns you can factor out. Most likely, some had already had such a problem.
+
+### Chapter 7
+
+> This chapter is not on how to write a library for purely functional parallelism but on how to approach the problem of designing a strictly functional library
+
+
+Kotlin evaluates strict arguments from left to right. If you want to postpone execution, use lazy parameters.
+
+
+In functional programming defer execution to the latest possible moment. Everything before the execution should just describe what the execution looks like.
+
+
+1. implement sa imple example
+1. explore the example
+1. make a design choice and discover its consequences
+1. learn something about the nature of the problem domain
+1. improve the design
+1. reiterate the process
+
+
+> The overall design process is a series of small adventures. You don't need a special license to do such exploration. Just dive in and see what you can find.
+
+
+**Derived combinator** (e.g. `lazyUnit`) - derives execution, as opposed to **primitive combinator** (`unit`).
