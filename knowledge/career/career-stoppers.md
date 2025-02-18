@@ -49,6 +49,7 @@ The meeting facilitation school. Teaches communication and effective goal accomp
 You sell all the time. Anytime you want to convince your team to your solution, you sell.
 
 Book: [Daniel H. Pink - To Sell is Human: The Surprising Truth About Moving Others](https://www.goodreads.com/book/show/13593553-to-sell-is-human)
+
 Book: [Gerald M. Weinberg - “The Secrets of Consulting: A Guide to Giving and Getting Advice Successfully”](https://www.goodreads.com/book/show/566213.The_Secrets_of_Consulting)
 
 ### Personal brand / Networking
