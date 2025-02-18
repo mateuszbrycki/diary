@@ -32,3 +32,7 @@ The small int won't be allocated on the heap, it's on the stack. The big int wil
     1. code cache - used by JIT
 
 XSS - stack overflow it to small - thread stack size
+
+## Materials
+1. [WJUG #167 - Garbage Collector w pigułce - Jakub Kubryński](https://www.youtube.com/watch?v=LCr3XyHdaZk)
+1. [Java memory model](https://medium.com/@alxkm/java-memory-model-3b973e84dc8c)
