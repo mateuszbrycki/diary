@@ -29,6 +29,8 @@ Any content written by AI will be appropriately marked.
         - [NoSQL Design Discovery](./knowledge/architecture/nosql-design-discovery.md)
     - Databases
         - [DynamoDB](./knowledge/databases/dynamodb.md)
+    - Career
+        - [Career Stoppers](./knowledge/career/career-stoppers.md)
 
 3. Blog
     - [16/09/2019 | CQ-Shop – Summary](./blog/20190916-cq-shop-summary.md)
