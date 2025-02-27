@@ -19,6 +19,7 @@ Any content written by AI will be appropriately marked.
     - [Staff Engineer: Leadership beyond the management track](./books/20240422-staff-engineer.md)
     - [Building Evolutionary Architectures: Support Constant Change](./books/20241225-building-evolutionary-architectures-support-constant-change.md)
     - [Functional Programming in Kotlin](./books/20250110-functional-programming-in-kotlin.md)
+    - [Fundamentals of Software Architecture](./books/20250127-fundamentals-of-software-architecture-an-engineering-approach.md)
 
 2. Knowledge
     - Testing
