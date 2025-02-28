@@ -53,10 +53,10 @@ Software Developers hould never take components designed by architects as the la
 A software architect leads by example, not by the title. Use your negotation, presentation, leadership skills to onboard the team to your idea. Hear their voice. Let them make decissions. 
 
 ### 4 C's
-Clarity
-Communication
-Consciseness
-Collaboration
+1. Clarity
+1. Communication
+1. Consciseness
+1. Collaboration
 
 ### 20-minute rule
 Devote at least 20 minutes a day to your career as an architect by learning something new or diving deeper into a specific topic. Plan these 20 minutes as the first 20 minutes of your working day.
