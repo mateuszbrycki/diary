@@ -1,7 +1,7 @@
 # Fitness Functions
 
-See notes from [Building Evolutionary Architectures: Support Constant Change](../../books/20241225-building-evolutionary-architectures-support-constant-change.md#fitness-functions).
-and [Architecture Discovery](../architecture/architecture-discovery.md#fitness-functions)
+See notes from [Building Evolutionary Architectures: Support Constant Change](../../books/20241225-building-evolutionary-architectures-support-constant-change.md#fitness-functions)
+and [Architecture Discovery](../architecture/architecture-discovery.md#fitness-functions).
 
 
 
