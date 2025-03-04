@@ -216,3 +216,23 @@ In functional programming defer execution to the latest possible moment. Everyth
 
 
 **Derived combinator** (e.g. `lazyUnit`) - derives execution, as opposed to **primitive combinator** (`unit`).
+Primitives are simple combinators that don't depend on others. They provide building blocks for more complex higher-order combinators.
+A combinator is said to be context sensitive when it passes on state, allowing sequencing of combinators. 
+
+### Chapter 8
+
+Property-based testing is a software testing approach that generalizes traditional example-based tests by focusing on properties (or invariants) that should hold true for a wide range of inputs.
+
+The main concepts of property based testing:
+1. **properties** - high-level rules or behaviours that must always hold true
+    1. A sorted list should always have elements in ascending order.
+    1. Adding an element to a set should not create duplicates.
+2. **generators** - tools that create random or systematically varied input data for tests,
+3. **shrinking** -  when a test fails, shrinking reduces the input to its simplest form that still causes the failure, making debugging easier.
+
+### Chapter 9 
+
+Algebraic library design establishes the interface with associated laws up front and then drives implementation. 
+The way users interact with a library might be more important than the actual implementation - API-driven.
+
+Starting design with the algebra lets combinators specify information to the implementation. 
