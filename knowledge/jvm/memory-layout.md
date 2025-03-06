@@ -48,6 +48,69 @@ TLAB allocation has better performance than `malloc` - Java is great in allocati
 
 **Epsilon GC** - a GC that does nothing.
 
+#### OOPs
+fat pointers
+`class oopDesc {}`
+
+An object in Java:
+1. header:
+  1. markword
+    1. identity hascode
+    1. object age (how many GC cycles it survived) - matters in Young, not updated in Old
+    1. lock (used by `synchronized` keywordk)
+  1. pointer to the objects class
+1. body
+
+Every Java object has overhead of 64 bit markWord and 64 bit class pointer.
+
+Compressed OOPS - JVM recognizes how much memory a runtime has. If more than 32GB, 64-bit pointers are used. Below, 32-bit pointers are used.
+
+Object layout should not bother you.
+
+False sharing - [Wikipedia](https://en.wikipedia.org/wiki/False_sharing)
+
+`-XX:+UseCompresseOops:`
+
+#### Project Lilliput
+1. The header should be even more compressable. 13-bits will be sufficient.
+1. insted of pointers, we could use class IDs in a lookup table.
+1. Instead of paddings, place pointers there.
+
+[JEP 450: Compact Object Headers](https://openjdk.org/jeps/450)
+
+#### Project Valhalla
+Valhalla will influence how objects are allocated in the memory.
+
+We will have objects that are copied, not passed by reference. Objects that have no identity. We will be able to simplify memory - in an array of strings, we won't need to mention that each of the objects is string. Only value will be stored - no header, no pointer.
+
+`value class` - similar to a `record` but with more constraints. No inheritence, no synchronization.
+
+Stack allocation - is an urban legend. Until Valhalla, Java doesn't allocate on the stack.
+Escape analysis - [scalar replacement](https://shipilev.net/jvm/anatomy-quarks/18-scalar-replacement/).
+
+JITWatch - to check where scalar replacement happens.
+
+#### Object Allocation Tracking
+1. `jcmd`
+1. `jfr`
+  - understands Java only
+  - JDK mission controll
+  - memory-tracking.jfr
+    `jfr view --verbose allocation-by-class memory-tracking.jfr` - JDK 22+
+      - can be enabled or disabled during application startup
+      - JFR recording can be enabled from machines code
+1. async profiler
+  - supports more than Java
+  - will report JVM as well
+1. JVM logs
+  - no good tools for parsing
+
+If you spot a performance issue, understand:
+1. what the user does,
+1. what the application does,
+1. what the JVM does,
+1. what the OS does.
+
 ### Off-heap - objects required by JVM to work
     1. metaspace (old perm-gen)
         1. runtime constant pool - literals, fields, methods etc.
