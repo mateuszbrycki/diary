@@ -49,8 +49,7 @@ TLAB allocation has better performance than `malloc` - Java is great in allocati
 **Epsilon GC** - a GC that does nothing.
 
 #### OOPs
-fat pointers
-`class oopDesc {}`
+fat pointers - `class oopDesc {}`
 
 An object in Java:
 1. header:
@@ -93,17 +92,17 @@ JITWatch - to check where scalar replacement happens.
 #### Object Allocation Tracking
 1. `jcmd`
 1. `jfr`
-  - understands Java only
-  - JDK mission controll
-  - memory-tracking.jfr
+    - understands Java only
+     - JDK mission controll
+    - memory-tracking.jfr
     `jfr view --verbose allocation-by-class memory-tracking.jfr` - JDK 22+
-      - can be enabled or disabled during application startup
-      - JFR recording can be enabled from machines code
+        - can be enabled or disabled during application startup
+        - JFR recording can be enabled from machines code
 1. async profiler
-  - supports more than Java
-  - will report JVM as well
+    - supports more than Java
+    - will report JVM as well
 1. JVM logs
-  - no good tools for parsing
+    - no good tools for parsing
 
 If you spot a performance issue, understand:
 1. what the user does,
@@ -111,12 +110,85 @@ If you spot a performance issue, understand:
 1. what the JVM does,
 1. what the OS does.
 
-### Off-heap - objects required by JVM to work
-    1. metaspace (old perm-gen)
-        1. runtime constant pool - literals, fields, methods etc.
-    1. code cache - used by JIT
+### Off-Heap
 
-XSS - stack overflow it to small - thread stack size
+Known as:
+1. native memory
+1. unmanaged memory
+1. direct buffers
+
+It's not supervised by GC.
+
+Any big data, streaming, databases in Java store data off-heap.
+1. Large heaps are problematic for GCs.
+1. The majority of these heaps are old generation - they are composed of long-living objects.
+1. Calls to native functions.
+1. I/O heavy workloads have serious overhead on CPU cycles and memory
+    - disks/networking,
+    - Java copies data that is saved/read from files to off-heap so that GC won't move it (the pointer to that table/buffer is passed to the OS as Java outsorces), chence `malloc` in `readBuffer`,
+    - direct buffers allocate off-heap so when I/O is involved, no copying is required,
+    - region pinning - [JEP 423: Region Pinning for G1](https://openjdk.org/jeps/423).
+
+#### Foreign Function & Memory API
+[JEP 454: Foreign Function & Memory API](https://openjdk.org/jeps/454)
+- Off-heap API
+  - `MemoryLayout`
+  - `MemorySegment`
+    - thread confinement - by default only the thread-creator has the access
+
+#### Off-heap memory tracking
+1. native memory tracking with JFR events, since Java 22, Tracking Java Native Memory With JDK Flight Recorder
+    - the `Other` section
+1. async profiler, with `malloc` set as event type,
+1. use `jemalloc` with heap profiling,
+1. use OS specific tooling,
+1. Massif from Valgrind, but it's extremly slow, beyond being usable.
+
+**When you find problems with native memory, first try to use other allocator, like *jemalloc* or *tcmalloc*.
+Some errors are caused by `gclib` allocator and memory fragmentation.**
+
+### Non-heap (aka CHeap)
+#### Metaspace
+
+In the Metaspace lands the code loaded from JARs.
+It grows not only on application startup but also in the application's runtime. Any library genereting the code on the fly (like bytebuddy or aspects), causes the metaspace occupancy increase.
+
+In order to disable GC from scanning Metaspace consider the `classUnloading` flag.
+
+G1 metaspace collection:
+- every GC handles Metaspace differently,
+- Metaspace is collected during concurrent mark and full GC phases.
+
+JFR events - `MetaspaceSummary`
+
+#### Code Cache
+The code optimized by JVM is stored in code cache.
+
+3 regions:
+1. JVM Internal (no-method) code,
+1. profiled code,
+1. non-profiled code.
+
+Code cache is likely to grow as Metaspace grows - the more code you loaded, the more is to be optimized.
+
+### Object Monitors
+https://bugs.openjdk.org/browse/JDK-8305994
+
+### Stack
+It's not anything like interesting unless you're not using virtual threads.
+
+It gets bigger depending on the:
+1. number of threads,
+1. depth of method calls.
+
+`-Xss` thread stack size
+
+Virtual threads when **mounted**, use platform thread stack. 
+When unmounted, their stacks are allocated on heap as instances of `jdk.internal.vm.Continuation` class.
+Empty `jdk.internal.vm.Continuation` requires 48 bytes.
+
+[JEP 491: Synchronize Virtual Threads without Pinning](https://openjdk.org/jeps/491)
+
 
 ## Materials
 1. [WJUG #167 - Garbage Collector w pigułce - Jakub Kubryński](https://www.youtube.com/watch?v=LCr3XyHdaZk)
