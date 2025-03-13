@@ -236,3 +236,51 @@ Algebraic library design establishes the interface with associated laws up front
 The way users interact with a library might be more important than the actual implementation - API-driven.
 
 Starting design with the algebra lets combinators specify information to the implementation. 
+
+### Chapter 10
+
+A monoid consists of the following:
+1. sompe type `A`,
+1. a binary operation `combine` that takes two values of type `A` and combinates them into one `combine(combine(x, y), z) == combine(x, combine(y, z))`,
+1. the value `nil: A` which is an identity for that operation: `combine(x, nil) == x`.
+
+**A monoid is an algebra and nothing more.**
+
+Ad hoc polymorphism - you can apply polymorphic functions to arguments of different types.
+
+A *type class* is a type system construct that can be used to implement ad hoc polymorphism. It does so by adding constraints to type variables in parametrically pholymorphic types. 
+A type class `T` and a type variable `a` means `a` can only be instatantiated to any type whose members support the overloaded operations associated with `T`.
+
+Example: `T` can represent Monoid, which takes the type parameter `A`, e.g. `String`. You instantiate a new instance of `Monoid<String>` that represents a monoid instance `a`. This monoid instance will now have the ability to combine `String` instances without being coupled to or constrained by the `String` class itself.
+
+#### Balanced fold
+Instead of 
+```combine(combine(combine(a, b), c), d)```
+you would do 
+```combine(combine(a, b), combine(c, d))```
+Inner combine calls are independent so they can easily be parallelized. 
+
+#### Higher-kinded types
+These types represent a combination of more nested types:
+
+```
+interface Foldable<F<A>> {
+    // impl
+}
+
+object ListFoldable: Foldable<List<A>> {
+    // impl
+}
+```
+
+They allow abstraction of operations to promote code reuse across multiple implementations and are types that take other types to construct new types.
+
+#### Semigroup
+A monoid is not the smallest unit in functional programming. It consits of the `combine` method and `nil` value. The `combine` method is known as **semigroup** anc can be defined as following:
+```
+interface Semigroup<A> {
+    fun combine(a1: A, a2: A): A
+}
+```
+
+A monoid is a combination of a semigroup and with the `nil` value. 
