@@ -35,6 +35,8 @@ Any content written by AI will be appropriately marked.
     - JVM
         - [Garbage Collectors](./knowledge/jvm/garbage-collectors.md)
         - [Memory Layout](./knowledge/jvm/memory-layout.md)
+    - Spring
+        - [Spring AI](./knowledge/spring/spring-ai.md)
 
 3. Blog
     - [16/09/2019 | CQ-Shop – Summary](./blog/20190916-cq-shop-summary.md)
