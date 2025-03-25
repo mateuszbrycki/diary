@@ -284,3 +284,87 @@ interface Semigroup<A> {
 ```
 
 A monoid is a combination of a semigroup and with the `nil` value. 
+
+### Chapter 11
+
+#### Functor
+
+A functor is a data type that implements `map`:
+
+```
+interface Functor<F> {
+    fun <A, B> map(fa: Kind<F, A>, f: (A) -> B): Kind<F, B>
+}
+```
+
+*Type constructor* is applied to a type to produce another type. `List` is a type constructor, not a type. There are no values of type `List`, but you can apply it to the type `Int` to produce type `List<Int>`. The `Functor` interface is parametric in the choice of `F`. 
+
+```
+val listFunctor = object : Functor<ForList> {
+    override fun <A, B> map(fa: ListOf<A>, f: (A) -> B): ListOf<B> = fa.fix().map(f)
+}
+```
+
+That type of a constructor like `List` is a functor, and the `Functor<F>` instance constitutes proof that `F` is a functor.
+
+The `Functor` interface has a `map` method, a higher-order function that applies a transformation to each element of the enclosing kind.
+The functor law stipulates the relationship between `map` and identity functions. It preserves the structure of the enclosing kind and is only concerned with transforming its elements.
+
+#### Monad
+
+`Monad<F>` is a `Functor<F>`
+
+**A monad is an implementation of one of the minimal sets of monadic combinators, satysfying the laws of associativity and identity.**
+
+##### Monadic Combinators
+Three monimal sets of primitive monadic combinators, and instances of `Monad` will have to provide implementation of one of these sets:
+1. `flatMap` and `unit`,
+1. `compose` and `unit`,
+1. `map`, `join`, and `unit`.
+
+##### Associative Law
+
+```
+combine(combine(x, y), z) == combine(x, combine(y, z))
+```
+
+##### Identity Law
+This is not a single law but a pair of laws, reffered to as *left identity* and *right identity*.
+
+```
+fun <A> unit(a: A): Kind<F, A>
+
+compose(f, {a: A -> unit(a)}) == f
+compose({a: A -> unit(a)}, f) == f
+```
+
+This can also be expressed in terms of `flatMap`:
+
+```
+flatMap(x) {a -> unit(a)} == x
+flatMap(unit(a), f) == f(a)
+```
+
+You could say that monads provide a context for introducing and binding variables and allowing variable substitution.
+
+##### Partial Type Application
+
+Consider you have a `State` that indexes by `Int`:
+```
+typealias IntState<A> = State<Int, A>
+```
+
+`IntState` is exactly the kind of thing for which you can build a `Monad`. However, you would need several such monads - `IntState`, `DoubleState`, `StringState`, etc. It doesn't scale well. Instead you can introduce the `StateMonad` interface, which can be partially applied with a type such as `Int`, resulting in a `StateMonad<Int>`:
+
+```
+interface StateMonad<S>: Monad<StatePartialOf<S>> {
+    override fun <A> unit(a: A): StateOf<S, A>
+
+    override fun <A, B> flatMap(
+        fa: StateOf<S, A>,
+        f: (A) -> StateOf<S, B>
+    ): StateOf<S, B>
+}
+```
+
+Monads all have `flatMap` and `unit` , and each monad brings its own set of additional primitive operations specific to that monad.
