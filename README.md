@@ -37,6 +37,8 @@ Any content written by AI will be appropriately marked.
         - [Memory Layout](./knowledge/jvm/memory-layout.md)
     - Spring
         - [Spring AI](./knowledge/spring/spring-ai.md)
+    - Platform Engineering
+        - [Security](./knowledge/platform-engineering/security.md)
 
 3. Blog
     - [16/09/2019 | CQ-Shop – Summary](./blog/20190916-cq-shop-summary.md)
